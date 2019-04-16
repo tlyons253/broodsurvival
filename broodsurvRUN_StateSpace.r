@@ -152,7 +152,7 @@ dir.create(newfolder) #create the folder to hold models and results
 #redo to state-space
 
 
-sink("C:/Users/Tim/Desktop/logexp/broodsurvival_logexp_null.txt")
+sink("C:/Users/Tim/Desktop/logexp/broodsurvival_logexp_SS.txt")
 	cat("
 model {
 		
@@ -206,11 +206,7 @@ sink()
 
 PTM<-c('trueD','dsr','p1','s22')
 
-sim.folder<-paste0(newfolder,'/results')
 
-dir.create(sim.folder)
-
-out<-sim.folder
 
 
 
@@ -233,7 +229,7 @@ nb=20000
 jag<-jags(data=mydata,
 				inits=inits,
 				 parameters.to.save=PTM,
-				 model.file="C:/Users/Tim/Desktop/logexp/broodsurvival_logexp_null.txt",
+				 model.file="C:/Users/Tim/Desktop/logexp/broodsurvival_logexp_SS.txt",
 				 n.chains=3,n.thin=nt,n.iter=ni,n.burnin=nb,n.adapt=1000,
 				 DIC=F,parallel=TRUE)
 
